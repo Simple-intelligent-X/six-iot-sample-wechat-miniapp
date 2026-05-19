@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <button class="refresh-btn" bind:tap="onLoad">登陆刷新</button>
+    <button class="signup-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">注册新号码</button>
+    <block>
+      <view class="nickname-wrapper">
+        <text class="nickname-label">点击下面已注册手机号进行登陆:</text>
+        <!-- <text wx:for="{{federatePhones}}" class="nickname-label">{{item}}</text> -->
+      </view>
+      <button class="signin-btn" wx:key="phone" wx:for="{{federatePhones}}" bind:tap="onSignIn" data-index="{{index}}">{{item.phoneMask}}</button>
+    </block>
+
+    <view class="error_msg">
+      <text class="nickname-label" wx-if="{{errorMsg}}">{{errorMsg}}</text>
+    </view>
+
+    <!-- <view class="userinfo">
+      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
+        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+        </button>
+        <view class="nickname-wrapper">
+          <text class="nickname-label">昵称</text>
+          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
+        </view>
+      </block>
+      <block wx:elif="{{!hasUserInfo}}">
+        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
+      </block>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view> -->
+    <!-- <view class="usermotto">
+      <text class="user-motto">openid: {{openId}}</text>
+    </view> -->
+  </view>
+</scroll-view>

@@ -1,0 +1,11 @@
+<!--logs.wxml-->
+<navigation-bar title="查看启动日志" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <button class="signout-btn" bind:tap="signOut">退出登陆</button>
+  <block>
+    <view class="log-item">{{phoneMask}}</view>
+  </block>
+  <block>
+    <view class="log-item">{{token}}</view>
+  </block>
+</scroll-view>
