@@ -159,7 +159,7 @@ Component<IData, any, any>({
       const phone = this.data.federatePhones[e.currentTarget.dataset['index']].phone;
       console.log('federateCode: ' + federateCode);
       console.log('phone: ' + phone);
-      const url = 'https://iam.shuhenglianchang.com/oauth2/token';
+      const url = 'https://iam.shuhenglianchang.com/token';
       wx.request({
         url: url,
         method: 'POST', // 可选，默认为 GET
